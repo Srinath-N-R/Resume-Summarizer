@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Resume</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Your Resume</h1>
+        <form action="/extract_info" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <button class="upload-button" type="submit">Upload</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Extracted Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Review Extracted Information</h1>
+        <form action="/generate_summary" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{ name }}" required><br><br>
+            
+            <label for="organization">Organization:</label>
+            <input type="text" id="organization" name="organization" value="{{ organization }}" required><br><br>
+            
+            <label for="education">Education:</label>
+            <textarea id="education" name="education" required>{{ education | join(', ') }}</textarea><br><br>
+            
+            <button class="generate-summary-button" type="submit">Generate Summary</button>
+        </form>
+    </div>
+</body>
+</html>
