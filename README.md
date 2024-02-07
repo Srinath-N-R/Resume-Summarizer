@@ -4,7 +4,7 @@ This Python project extracts crucial information from resumes and generates a co
 
 ## Features
 - **Resume Parsing:** Accepts resumes in PDF and DOCX formats.
-- **Information Extraction:** Utilizes spaCy and regular expressions to identify names, locations, addresses, and education details.
+- **Information Extraction:** Utilizes Named Entity Extraction and regular expressions to identify key information.
 - **Summarization:** Converts extracted information into clear, human-readable summaries.
 - **Flask Frontend:** Provides an intuitive web interface for uploading resumes and viewing summaries.
 
