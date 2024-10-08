@@ -1,64 +1,91 @@
-/* Add your custom styles here */
-
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
+    width: 80%;
+    margin: auto;
     padding: 20px;
-    background-color: #fff;
+    background: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
 }
 
 h1 {
+    text-align: center;
     color: #333;
 }
 
-form {
-    margin-top: 20px;
+h3 {
+    color: #333;
+    margin-bottom: 10px;
 }
 
-label {
+/* Form Styles */
+form label {
     font-weight: bold;
+    color: #555;
     display: block;
     margin-bottom: 5px;
 }
 
-input[type="text"],
-textarea {
+form input[type="text"],
+form textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 14px;
 }
 
-button {
-    background-color: #007BFF;
+textarea {
+    height: 100px;
+}
+
+/* Buttons */
+.upload-button,
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #5cb85c;
     color: #fff;
     border: none;
-    padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
-p {
-    font-size: 18px;
-    margin-top: 20px;
+.upload-button:hover,
+.submit-button:hover {
+    background: #4cae4c;
 }
 
-a.upload-another-link {
+.upload-another-link {
     display: block;
+    text-align: center;
     margin-top: 20px;
-    color: #007BFF;
+    color: #0275d8;
     text-decoration: none;
 }
 
-a.upload-another-link:hover {
+.upload-another-link:hover {
     text-decoration: underline;
+}
+
+/* Summary Content */
+.summary-content {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 20px;
+    white-space: pre-wrap; /* This will ensure the new lines are respected */
 }

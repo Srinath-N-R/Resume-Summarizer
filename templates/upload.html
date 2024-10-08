@@ -2,16 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Resume</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
         <h1>Upload Your Resume</h1>
-        <form action="/extract_info" method="post" enctype="multipart/form-data">
+
+        <!-- Display flash messages here -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Spinner -->
+        <div id="loadingSpinner" style="display:none; text-align:center;">
+            <img src="/static/spinner.gif" alt="Loading..." style="width:50px;">
+            <p>Extracting info, please wait...</p>
+        </div>
+
+        <!-- Upload form -->
+        <form action="/extract_info" method="post" enctype="multipart/form-data" id="uploadForm">
             <input type="file" name="file" required>
-            <button class="upload-button" type="submit">Upload</button>
+            <button class="upload-button" type="submit" onclick="showSpinner()">Upload</button>
         </form>
     </div>
+
+    <script>
+    // Function to show the spinner when the form is submitted
+    function showSpinner() {
+        document.getElementById('loadingSpinner').style.display = 'block';
+    }
+
+    // Hide spinner on page load in case it was showing
+    window.onload = function() {
+        document.getElementById('loadingSpinner').style.display = 'none';
+    }
+    </script>
 </body>
 </html>

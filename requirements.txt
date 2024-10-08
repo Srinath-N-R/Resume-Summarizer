@@ -1,11 +1,5 @@
-fitz
 Flask
+fitz
 PyMuPDF
-spaCy
 python-docx
-
-
-# After installing requirements ( pip install -r requirements.txt), 
-# run this command to download the English language model:
-# python -m spacy download en_core_web_trf
-
+openai

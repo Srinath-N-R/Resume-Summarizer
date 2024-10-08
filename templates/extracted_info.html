@@ -2,24 +2,103 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Extracted Information</title>
+    <title>Review Extracted Information</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
         <h1>Review Extracted Information</h1>
-        <form action="/generate_summary" method="post">
-            <label for="name">Name:</label>
+
+        <!-- Spinner -->
+        <div id="loadingSpinner" style="display:none; text-align:center;">
+            <img src="/static/spinner.gif" alt="Loading..." style="width:50px;">
+            <p>Generating summary, please wait...</p>
+        </div>
+
+        <form method="post" action="{{ url_for('generate_summary_route') }}" id="summaryForm">
+            <!-- Name -->
+            <label for="name">Name:</label><br>
             <input type="text" id="name" name="name" value="{{ name }}" required><br><br>
-            
-            <label for="organization">Organization:</label>
-            <input type="text" id="organization" name="organization" value="{{ organization }}" required><br><br>
-            
-            <label for="education">Education:</label>
-            <textarea id="education" name="education" required>{{ education | join(', ') }}</textarea><br><br>
-            
-            <button class="generate-summary-button" type="submit">Generate Summary</button>
+
+            <!-- Location -->
+            <label for="location">Location:</label><br>
+            <input type="text" id="location" name="location" value="{{ location }}"><br><br>
+
+            <!-- Nationality -->
+            <label for="nationality">Nationality:</label><br>
+            <input type="text" id="nationality" name="nationality" value="{{ nationality }}"><br><br>
+
+            <!-- Useful Links -->
+            <label for="useful_links">Useful Links:</label><br>
+            <textarea id="useful_links" name="useful_links">{{ ', '.join(useful_links) }}</textarea><br><br>
+
+            <!-- Job 1 -->
+            <h3>First Most Recent Job</h3>
+            <label for="job1">Organization:</label><br>
+            <input type="text" id="job1" name="job1" value="{{ job1.organization }}"><br><br>
+
+            <label for="job1_title">Job Title:</label><br>
+            <input type="text" id="job1_title" name="job1_title" value="{{ job1.job_title }}"><br><br>
+
+            <label for="job1_timeline">Timeline (Start Date - End Date):</label><br>
+            <input type="text" id="job1_timeline" name="job1_timeline" value="{{ job1.start_date }} - {{ job1.end_date }}"><br><br>
+
+            <label for="responsibilities1">Responsibilities:</label><br>
+            <textarea id="responsibilities1" name="responsibilities1">{{ ', '.join(job1.responsibilities) }}</textarea><br><br>
+
+            <!-- Job 2 -->
+            <h3>Second Most Recent Job</h3>
+            <label for="job2">Organization:</label><br>
+            <input type="text" id="job2" name="job2" value="{{ job2.organization }}"><br><br>
+
+            <label for="job2_title">Job Title:</label><br>
+            <input type="text" id="job2_title" name="job2_title" value="{{ job2.job_title }}"><br><br>
+
+            <label for="job2_timeline">Timeline (Start Date - End Date):</label><br>
+            <input type="text" id="job2_timeline" name="job2_timeline" value="{{ job2.start_date }} - {{ job2.end_date }}"><br><br>
+
+            <label for="responsibilities2">Responsibilities:</label><br>
+            <textarea id="responsibilities2" name="responsibilities2">{{ ', '.join(job2.responsibilities) }}</textarea><br><br>
+
+            <!-- Education -->
+            <label for="education">Education:</label><br>
+            <textarea id="education" name="education">{{ ', '.join(education) }}</textarea><br><br>
+
+            <!-- Hard Skills -->
+            <label for="hard_skills">Hard Skills:</label><br>
+            <textarea id="hard_skills" name="hard_skills">{{ ', '.join(hard_skills) }}</textarea><br><br>
+
+            <!-- Soft Skills -->
+            <label for="soft_skills">Soft Skills:</label><br>
+            <textarea id="soft_skills" name="soft_skills">{{ ', '.join(soft_skills) }}</textarea><br><br>
+
+            <!-- Tools -->
+            <label for="tools">Tools:</label><br>
+            <textarea id="tools" name="tools">{{ ', '.join(tools) }}</textarea><br><br>
+
+            <!-- Projects -->
+            <label for="projects">Projects:</label><br>
+            <textarea id="projects" name="projects">{{ ', '.join(projects) }}</textarea><br><br>
+
+            <!-- Other Relevant Info -->
+            <label for="other_info">Other Relevant Info:</label><br>
+            <textarea id="other_info" name="other_info">{{ other_info }}</textarea><br><br>
+
+            <input type="submit" value="Generate Summary" class="submit-button" onclick="showSpinnerAndScroll()">
         </form>
     </div>
+
+    <script>
+    // Function to show the spinner and scroll to the top when the form is submitted
+    function showSpinnerAndScroll() {
+        document.getElementById('loadingSpinner').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Hide spinner on page load in case it was showing
+    window.onload = function() {
+        document.getElementById('loadingSpinner').style.display = 'none';
+    }
+    </script>
 </body>
 </html>
