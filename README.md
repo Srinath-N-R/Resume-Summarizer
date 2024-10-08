@@ -5,8 +5,8 @@ This Python project extracts crucial information from resumes and generates a co
 ## Features
 - **Resume Parsing:** Accepts resumes in PDF and DOCX formats.
 - **Information Extraction:** Utilizes LLM to identify key information.
-- **Summarization:** Converts extracted information into clear, human-readable summaries.
-- **Flask Frontend:** Provides an intuitive web interface for uploading resumes and viewing summaries.
+- **Summarization:** Converts extracted information into concise summaries.
+- **Flask Frontend:** Provides a web interface for parsing/summarizing resumes.
 
 ## Getting Started
 1. Install requirements using this command: `pip install -r requirements.txt`
