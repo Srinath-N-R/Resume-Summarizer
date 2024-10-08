@@ -10,12 +10,12 @@ This Python project extracts crucial information from resumes and generates a co
 
 ## Getting Started
 1. Install requirements using this command: `pip install -r requirements.txt`
-2. Install spaCy model using this command: `python -m spacy download en_core_web_trf`
-3. Run `app.py`.
-4. Upload a resume (PDF or DOCX).
-5. Review extracted information (name, organization, education).
-6. Click "Generate Summary" to get a summary of the resume.
-7. Upload another resume or continue using the app.
+2. Update `config.py` and set your own `OPENAI_API_KEY`. Sample `OPENAI_API_KEY` can be found [here](https://docs.google.com/document/d/18WNb90tY7YsknNiHssgemMxb2DyAaTonKi6L2EhjkuA/edit?usp=sharing), it has rate limits.
+5. Run `app.py`.
+6. Upload a resume (PDF or DOCX).
+7. Review extracted information (name, organization, education).
+8. Click "Generate Summary" to get a summary of the resume.
+9. Upload another resume or continue using the app.
 
 ## Acknowledgments
 - Built with Flask, spaCy, and PyMuPDF.
