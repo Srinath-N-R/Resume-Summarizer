@@ -18,5 +18,5 @@ This Python project extracts crucial information from resumes and generates a co
 9. Upload another resume or continue using the app.
 
 ## Acknowledgments
-- Built with Flask, spaCy, and PyMuPDF.
-- Inspired by the need for efficient resume screening and summarization.
+- Built with Flask, openai, and PyMuPDF.
+- Inspired by the need for efficient and intellingent ATS systems.
